@@ -1,40 +1,74 @@
+import { Outlet, Link, useLoaderData, Form, redirect, NavLink, useNavigation, useSubmit, } from "react-router-dom";
+import {getShirt, getShirts} from "../shirts";
+import { useEffect } from "react";
+
+export async function loader({ request }) {
+    const url = new URL(request.url);
+    const q = url.searchParams.get("q");
+    const shirts = await getShirts(q);
+    return { shirts, q };
+}
+
+
 export default function Index(){
+    const { shirts, q } = useLoaderData();
+    const navigation = useNavigation();
+    useEffect(() => {
+        document.getElementById("q").value = q;
+      }, [q]);
+
+
+      const submit = useSubmit();
+      const searching =
+    navigation.location &&
+    new URLSearchParams(navigation.location.search).has(
+      "q"
+    );
+
     return (
+    <>
     <div id="sidebar">
-        <h1>React Router Contacts</h1>
-        <div>
-          <form id="search-form" role="search">
+        <h1>Shirts</h1>
+        <Form id="search-form" role="search">
             <input
               id="q"
-              aria-label="Search contacts"
+              className={searching ? "loading" : ""}
+              aria-label="Search posts"
               placeholder="Search"
               type="search"
               name="q"
+              defaultValue={q}
+              onChange={(event) => {
+                  const isFirstSearch = q == null;
+              submit(event.currentTarget.form, {
+                replace: !isFirstSearch,
+              });
+              }}
             />
             <div
               id="search-spinner"
               aria-hidden
-              hidden={true}
+              hidden={!searching}
             />
             <div
               className="sr-only"
               aria-live="polite"
             ></div>
-          </form>
-          <form method="post">
-            <button type="submit">New</button>
-          </form>
-        </div>
-        <nav>
-          <ul>
-            <li>
-              <a href={`/2`}>Your Name</a>
-            </li>
-            <li>
-              <a href={`/4`}>Your Friend</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+        </Form>
+    </div>
+    <div className="container__shirts">
+        {shirts.length ? (
+            <div>
+                {shirts.map((shirt) => (
+                    <NavLink to={`/${shirt.id}`} key={shirt.id}>
+                        <h2>{shirt.title}</h2>
+                    </NavLink>
+                ))}
+            </div>
+        ) : (
+            <p>No shirts found</p>
+        )}
+    </div>
+    </>
     )
 }

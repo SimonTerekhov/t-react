@@ -18,6 +18,23 @@ export const graphQLRequest = async (query, variables = {}) => {
   return result;
 };
 
+export async function getShirts(searchTerm) {
+  const result = await graphQLRequest(
+    `query getShirts($term: String) {
+    shirtsEntries(search: $term) {
+      ... on shirts_default_Entry {
+        id
+        title
+        description
+      }
+    }
+  }`,
+    { term: searchTerm }
+  );
+
+  return result.data.shirtsEntries;
+}
+
 export async function getShirt(id) {
   const result = await graphQLRequest(
     `query getShirt($id: [QueryArgument]) {

@@ -6,7 +6,7 @@ import './index.css'
 
 //routes
 import Root from "./routes/root";
-import Index from "./routes/index";
+import Index, {loader as indexLoader} from "./routes/index";
 import ErrorPage from "./error-page";
 import Shirt, {loader as shirtDetailLoader} from "./routes/shirt";
 
@@ -18,7 +18,8 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Index/>
+        element: <Index/>,
+        loader: indexLoader,
       },
       {
         path: "/:shirtId",
