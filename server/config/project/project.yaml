@@ -1,0 +1,26 @@
+dateModified: 1691246247
+email:
+  fromEmail: simon.terekhov@gmail.com
+  fromName: t-react
+  transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    0b78ac70-2a08-4c9e-81e2-21bae8339f60: t-react # t-react
+    02b87d5e-eb2b-40d3-88ac-b28fe84bde20: Default # Default
+    5f67af7d-f291-4014-9fc3-354454c419b2: Shirts # Shirts
+    33bc150d-31e9-47c3-b25d-a813087f91f8: t-react # t-react
+    c5fbbd8d-e6a5-485f-b279-015d8309feff: Common # Common
+    e4cb0ec6-4050-4ba5-9ee8-0c906e00b90d: 'Public Schema' # Public Schema
+    ea515821-b8cf-40b4-8de9-d08e73d13ad4: description # description
+system:
+  edition: pro
+  live: true
+  name: t-react
+  schemaVersion: 4.4.0.4
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true

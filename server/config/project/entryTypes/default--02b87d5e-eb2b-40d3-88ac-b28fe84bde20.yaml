@@ -1,0 +1,55 @@
+fieldLayouts:
+  d4148c01-402a-4482-9a9a-5ff39ff61382:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: Name
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 0c1ce158-ec4c-4112-a18e-08d46eb4e8eb
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: ea515821-b8cf-40b4-8de9-d08e73d13ad4 # description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 77fa03b4-75c5-4ae3-a4fe-70b78f35080c
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: f85b173d-ba6b-42da-8e11-79605cf90a8b
+        userCondition: null
+handle: default
+hasTitleField: true
+name: Default
+section: 5f67af7d-f291-4014-9fc3-354454c419b2 # Shirts
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

@@ -1,0 +1,12 @@
+defaultPlacement: end
+enableVersioning: true
+handle: shirts
+name: Shirts
+propagationMethod: all
+siteSettings:
+  33bc150d-31e9-47c3-b25d-a813087f91f8: # t-react
+    enabledByDefault: true
+    hasUrls: true
+    template: shirts/_entry
+    uriFormat: 'shirts/{slug}'
+type: channel
