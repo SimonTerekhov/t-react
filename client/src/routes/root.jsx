@@ -6,8 +6,8 @@ export default function Root() {
         <nav className="nav__items">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/create">Create</NavLink>
-            <NavLink to="/profile">Profile</NavLink>
-            <NavLink to="/profile/likes">Likes</NavLink>
+            <NavLink to="/admin/details">Profile</NavLink>
+            <NavLink to="/admin/likes">Likes</NavLink>
         </nav>
         <main>
             <Outlet />

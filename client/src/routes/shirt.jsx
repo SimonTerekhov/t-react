@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, Form } from "react-router-dom";
 import {getShirt} from "../shirts";
 
 export async function loader({ params }) {
@@ -18,6 +18,21 @@ export default function Shirt(){
         <div>
             <h1>{shirt.title}</h1>
             <p>{shirt.description}</p>
+            <Form action="edit">
+                <button id="edit" type="submit">edit</button>
+            </Form>
+            <Form method="post" action="destroy" onSubmit={(event) => {
+            if (
+              !confirm(
+                "Please confirm you want to delete this record."
+              )
+            ) {
+              event.preventDefault();
+            }
+          }}
+        >
+          <button id="delete" type="submit">delete</button>
+        </Form>
         </div>
     )
 }

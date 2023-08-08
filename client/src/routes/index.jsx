@@ -1,5 +1,5 @@
 import { Outlet, Link, useLoaderData, Form, redirect, NavLink, useNavigation, useSubmit, } from "react-router-dom";
-import {getShirt, getShirts} from "../shirts";
+import {getShirts} from "../shirts";
 import { useEffect } from "react";
 
 export async function loader({ request }) {
@@ -56,6 +56,7 @@ export default function Index(){
             ></div>
         </Form>
     </div>
+    <NavLink to="/create"><button>Create</button></NavLink>
     <div className="container__shirts">
         {shirts.length ? (
             <div>
