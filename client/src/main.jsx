@@ -12,6 +12,7 @@ import Shirt, {loader as shirtDetailLoader} from "./routes/shirt";
 import Create, {action as createAction} from "./routes/create";
 import Edit, {action as editAction} from "./routes/edit";
 import {action as destroyAction} from "./routes/destroy";
+import Login, {action as loginAction} from "./routes/login";
 
 //roots profile
 import Account from "./routes/account/account";
@@ -67,6 +68,11 @@ const router = createBrowserRouter([
             element: <Details />,
           }
         ]
+      },
+      {
+        path: "/login",
+        element: <Login />,
+        action: loginAction,
       }
       
     ]

@@ -17,6 +17,9 @@ export default function Index(){
         document.getElementById("q").value = q;
       }, [q]);
 
+      const user = JSON.parse(localStorage.getItem("user"));
+      const jwt = localStorage.getItem("jwt");
+
 
       const submit = useSubmit();
       const searching =

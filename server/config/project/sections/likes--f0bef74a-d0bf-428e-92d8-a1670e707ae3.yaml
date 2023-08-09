@@ -1,0 +1,24 @@
+defaultPlacement: end
+enableVersioning: true
+handle: likes
+name: Likes
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  33bc150d-31e9-47c3-b25d-a813087f91f8: # t-react
+    enabledByDefault: true
+    hasUrls: true
+    template: likes/_entry
+    uriFormat: 'likes/{slug}'
+type: channel

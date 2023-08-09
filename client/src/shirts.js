@@ -1,22 +1,4 @@
-const BASE_URL = import.meta.env.VITE_API_ENDPOINT || "";
-
-export const graphQLRequest = async (query, variables = {}) => {
-  const result = await fetch(`${BASE_URL}/api`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query,
-      variables,
-    }),
-  }).then((res) => res.json());
-  if (!result.data) {
-    console.log(result);
-    throw new Error(result.errors[0].message);
-  }
-  return result;
-};
+import { graphQLRequest } from './utils/graphql';
 
 export async function getShirts(searchTerm) {
   const result = await graphQLRequest(
@@ -73,7 +55,7 @@ export async function createShirt(create) {
   return data.save_shirts_default_Entry;
 }
 
-export async function editShirt(id, edits) {
+export async function editShirt(jwt, id, edits) {
   const { data } = await graphQLRequest(
     `mutation editShirt($id: ID, $title: String, $description: String) {
       save_shirts_default_Entry(id: $id, title: $title, description: $description) {
@@ -86,18 +68,20 @@ export async function editShirt(id, edits) {
       id,
       ...edits,
     },
+    jwt
   );
 
   return data.save_shirts_default_Entry;
 }
 
-export async function deleteShirt(id) {
+export async function deleteShirt(jwt, id) {
   const result = await graphQLRequest(
     `mutation deleteShirt($id: Int!) {
     deleteEntry(id: $id)
   }
 `,
     { id: parseInt(id) },
+    jwt
   );
 
   return result;

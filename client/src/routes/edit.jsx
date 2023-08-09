@@ -1,13 +1,14 @@
 import { useLoaderData, Form, redirect } from "react-router-dom";
 import { editShirt } from "../shirts";
+import jwtDecode from "jwt-decode";
 
 export async function action({ request, params }) {
     const formData = await request.formData();
     const edits = Object.fromEntries(formData);
-    await editShirt(params.shirtId, edits);
-    return redirect(`/${params.shirtId}`);
-  }
-
+    const jwt = localStorage.getItem("jwt");
+    await editShirt(jwt, params.shirtId, edits);
+    return redirect(`/${params.shirtId}`);   
+}
 
 export default function Edit(){
     const { shirt } = useLoaderData();
