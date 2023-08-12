@@ -1,7 +1,9 @@
 import { useLoaderData, Form } from "react-router-dom";
 import {getShirt} from "../shirts";
+import {getLike} from "../likes";
 
 export async function loader({ params }) {
+  const user = JSON.parse(localStorage.getItem("user"));
     const shirt = await getShirt(params.shirtId);
   if (!shirt) {
     throw new Response("", {
@@ -9,11 +11,12 @@ export async function loader({ params }) {
       statusText: "Not Found",
     });
   }
-  return { shirt };
+  const like = await getLike(params.shirtId, user.id);
+  return { shirt, like };
 }
 
 export default function Shirt(){
-    const { shirt } = useLoaderData();
+    const { shirt, like } = useLoaderData();
     return (
         <div>
             <h1>{shirt.title}</h1>
@@ -33,6 +36,14 @@ export default function Shirt(){
         >
           <button id="delete" type="submit">delete</button>
         </Form>
+          {like ? 
+          <Form method="post" action="unlike">
+            <button type="submit">💜</button>
+          </Form>
+          : 
+          <Form method="post" action="like">
+            <button id="shirt__like" type="submit">♡</button>
+          </Form>}
         </div>
     )
 }

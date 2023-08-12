@@ -7,6 +7,8 @@ export async function authenticate(email, password){
                 jwt
                 user{
                     id
+                    email
+                    username
                 }
             }
         }`

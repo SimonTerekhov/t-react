@@ -39,10 +39,10 @@ export async function getShirt(id) {
   }
 }
 
-export async function createShirt(create) {
+export async function createShirt(jwt,authorId, create) {
   const { data } = await graphQLRequest(
     `mutation createShirt($title: String, $description: String) {
-      save_shirts_default_Entry(title: $title, description: $description, authorId: "1") {
+      save_shirts_default_Entry(title: $title, description: $description, authorId: ${authorId}) {
         id
         title
         description
@@ -51,6 +51,7 @@ export async function createShirt(create) {
     {
       ...create,
     },
+    jwt
   );
   return data.save_shirts_default_Entry;
 }

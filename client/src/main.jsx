@@ -3,7 +3,6 @@ import {createBrowserRouter, RouterProvider, } from "react-router-dom";
 import React from 'react'
 import './index.css'
 
-
 //routes
 import Root from "./routes/root";
 import Index, {loader as indexLoader} from "./routes/index";
@@ -13,6 +12,8 @@ import Create, {action as createAction} from "./routes/create";
 import Edit, {action as editAction} from "./routes/edit";
 import {action as destroyAction} from "./routes/destroy";
 import Login, {action as loginAction} from "./routes/login";
+import {action as likeAction} from "./routes/like"
+import {action as unlikeAction} from "./routes/unlike"
 
 //roots profile
 import Account from "./routes/account/account";
@@ -41,6 +42,14 @@ const router = createBrowserRouter([
         element: <Edit/>,
         loader: shirtDetailLoader,
         action: editAction,
+      },
+      {
+        path: "/:shirtId/like",
+        action: likeAction,
+      },
+      {
+        path: "/:shirtId/unlike",
+        action: unlikeAction,
       },
       {
         path: "/:shirtId/destroy",

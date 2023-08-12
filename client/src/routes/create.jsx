@@ -3,10 +3,13 @@ import { createShirt } from "../shirts";
 import jwtDecode from "jwt-decode";
 
 export async function action({request}) {
+    const jwt = localStorage.getItem("jwt");
+    const user = JSON.parse(localStorage.getItem("user"));
+
     const formData = await request.formData();
     const create = Object.fromEntries(formData);
-    const result = await createShirt(create);
-
+    console.log(create);
+    const result = await createShirt(jwt, user.id, create);
     if (!jwt || !user || !user.id) {
         return redirect("/login");
     }
@@ -25,9 +28,9 @@ export default function Create(){
     return(
         <>
         <div className="container__shirt">
-            <img style={{width:"45vw"}}src="/shirt.png" alt="shirt" />
+            <img className="shirt" src="/shirt.png" alt="shirt" />
             <div className="drawing__surface" >
-
+                
             </div>
         </div>
         <Form method="post" id="create__form">

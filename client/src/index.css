@@ -1,3 +1,6 @@
+@import url(reset.css);
+
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -54,6 +57,22 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+
+.container__shirt{
+  position: relative;
+  width: 40vw;
+}
+
+.shirt{
+  max-width: 100%;
+  height: auto;
+  filter: opacity(0.5) drop-shadow(0 0 0 blue);
+}
+
+
+
+
 
 @media (prefers-color-scheme: light) {
   :root {

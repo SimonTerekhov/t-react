@@ -13,7 +13,7 @@ fieldLayouts:
             elementCondition: null
             id: null
             instructions: null
-            label: null
+            label: Username
             max: null
             min: null
             name: null
@@ -27,6 +27,30 @@ fieldLayouts:
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
             uid: 3ad39fb4-78e4-4a15-9ebe-5b50591098d0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 0a1f8dba-53e1-4eed-9276-b68c6a6b49ff # idShirt
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b345e69a-ad29-45c4-8732-5996863e8312
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: aa55fa09-c237-433c-ae5a-29eec1d62d10
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 185a17e8-7565-4f5a-8407-6438a77155ba
             userCondition: null
             warning: null
             width: 100
