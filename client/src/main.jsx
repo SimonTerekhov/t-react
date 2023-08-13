@@ -12,6 +12,7 @@ import Create, {action as createAction} from "./routes/create";
 import Edit, {action as editAction} from "./routes/edit";
 import {action as destroyAction} from "./routes/destroy";
 import Login, {action as loginAction} from "./routes/login";
+import Register, {action as registerAction} from "./routes/register"
 import {action as likeAction} from "./routes/like"
 import {action as unlikeAction} from "./routes/unlike"
 
@@ -83,6 +84,11 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login />,
         action: loginAction,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+        action: registerAction,
       }
       
     ]

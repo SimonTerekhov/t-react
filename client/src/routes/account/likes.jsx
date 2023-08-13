@@ -11,12 +11,9 @@ export async function loader(){
 
 export default function Likes(){
     const {likes, shirts} = useLoaderData();
-    console.log(likes);
-    console.log(shirts);
 
     const likedShirts = shirts.filter(shirt => likes.some(like => like.idshirt === shirt.id));
-
-    console.log(likedShirts);
+    
     return(
         <>
             {likedShirts.map(shirt => (

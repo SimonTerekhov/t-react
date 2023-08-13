@@ -1,6 +1,7 @@
 import { Form,redirect, useNavigate} from "react-router-dom";
 import { createShirt } from "../shirts";
 import jwtDecode from "jwt-decode";
+import { useState } from "react";
 
 export async function action({request}) {
     const jwt = localStorage.getItem("jwt");
@@ -24,18 +25,23 @@ export async function action({request}) {
 
 export default function Create(){
     const navigate = useNavigate();
-
+    const [shirtColor, setShirtColor] = useState("blue");
+    const handleColorChange = (e) =>{
+      setShirtColor(e.target.value)
+  }
     return(
         <>
         <div className="container__shirt">
-            <img className="shirt" src="/shirt.png" alt="shirt" />
-            <div className="drawing__surface" >
-                
-            </div>
+            <img className="shirt" style={{ filter: `opacity(.5) drop-shadow(0 0 0 ${shirtColor})` }} src="/shirt.png" alt="shirt" />
+            <svg className="drawing__surface" width="150" height="150" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              
+              <circle cx="0" cy="0" r="15" stroke="black" fill="blue" stroke-width="3"/>
+            </svg>
         </div>
         <Form method="post" id="create__form">
             <input type="text" name="title" />
             <input type="text" name="description" />
+            <input type="color" onChange={handleColorChange}/>
             <div className="create__buttons">
                 <button type="submit" id="submitter">Create</button>
                   <button

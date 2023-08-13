@@ -7,10 +7,14 @@ export default function Root() {
   return (
     <>
       <nav className="nav__items">
+        <div className="items__left">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/create">Create</NavLink>
-          <NavLink to={loginState !== null ? `${loginState.username}/details` : `/login`}>Profile</NavLink>
+        </div>
+        <div className="items__right">
           <NavLink to={loginState !== null ? `${loginState.username}/likes` : `/login`}>Likes</NavLink>
+          <NavLink to={loginState !== null ? `${loginState.username}/details` : `/login`}>Profile</NavLink>
+        </div>
       </nav>
       <main>
           <Outlet />

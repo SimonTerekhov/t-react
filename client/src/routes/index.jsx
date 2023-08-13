@@ -30,49 +30,49 @@ export default function Index(){
 
     return (
     <>
-    <div id="sidebar">
-        <h1>Shirts</h1>
-        <Form id="search-form" role="search">
-            <input
-              id="q"
-              className={searching ? "loading" : ""}
-              aria-label="Search posts"
-              placeholder="Search"
-              type="search"
-              name="q"
-              defaultValue={q}
-              onChange={(event) => {
-                  const isFirstSearch = q == null;
-              submit(event.currentTarget.form, {
-                replace: !isFirstSearch,
-              });
-              }}
-            />
-            <div
-              id="search-spinner"
-              aria-hidden
-              hidden={!searching}
-            />
-            <div
-              className="sr-only"
-              aria-live="polite"
-            ></div>
-        </Form>
-    </div>
-    <NavLink to="/create"><button>Create</button></NavLink>
-    <div className="container__shirts">
-        {shirts.length ? (
-            <div>
-                {shirts.map((shirt) => (
-                    <NavLink to={`/${shirt.id}`} key={shirt.id}>
-                        <h2>{shirt.title}</h2>
-                    </NavLink>
-                ))}
-            </div>
-        ) : (
-            <p>No shirts found</p>
-        )}
-    </div>
+      <div id="sidebar">
+          <h1>Shirts</h1>
+          <Form id="search-form" role="search">
+              <input
+                id="q"
+                className={searching ? "loading" : ""}
+                aria-label="Search posts"
+                placeholder="Search"
+                type="search"
+                name="q"
+                defaultValue={q}
+                onChange={(event) => {
+                    const isFirstSearch = q == null;
+                submit(event.currentTarget.form, {
+                  replace: !isFirstSearch,
+                });
+                }}
+              />
+              <div
+                id="search-spinner"
+                aria-hidden
+                hidden={!searching}
+              />
+              <div
+                className="sr-only"
+                aria-live="polite"
+              ></div>
+          </Form>
+          <NavLink to="/create"><button>Create</button></NavLink>
+      </div>
+      <div className="container__shirts">
+          {shirts.length ? (
+              <div>
+                  {shirts.map((shirt) => (
+                      <NavLink to={`/${shirt.id}`} key={shirt.id}>
+                          <h2>{shirt.title}</h2>
+                      </NavLink>
+                  ))}
+              </div>
+          ) : (
+              <p>No shirts found</p>
+          )}
+      </div>
     </>
     )
 }

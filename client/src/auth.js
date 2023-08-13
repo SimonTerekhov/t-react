@@ -15,3 +15,22 @@ export async function authenticate(email, password){
     );
     return result.data.authenticate;
 }
+
+export async function register(email,password,username) {
+    const result = await graphQLRequest(
+        `mutation register{
+            register(
+                email: "${email}"
+                password: "${password}"
+                username: "${username}"
+              ) {
+                jwt
+                user{
+                    id
+                    username
+                }
+              }
+        }`
+    );
+    return result.data.register;
+}
