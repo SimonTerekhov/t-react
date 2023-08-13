@@ -17,7 +17,7 @@ import {action as unlikeAction} from "./routes/unlike"
 
 //roots profile
 import Account from "./routes/account/account";
-import Likes from "./routes/account/likes";
+import Likes, {loader as likesLoader} from "./routes/account/likes";
 import Creations from "./routes/account/creations";
 import Details from "./routes/account/details";
 
@@ -67,6 +67,7 @@ const router = createBrowserRouter([
           {
             path: "likes",
             element: <Likes />,
+            loader: likesLoader,
           },
           {
             path: "creations",

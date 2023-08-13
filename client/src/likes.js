@@ -17,6 +17,23 @@ export async function getLike(id, gebruiker) {
     return result.data.likesEntries[0];
 }
 
+export async function getLikes(id){
+    const result = await graphQLRequest(
+        `query getLikes{
+            likesEntries(authorId: ${id}) {
+                ... on likes_default_Entry {
+                  id
+                  idshirt
+                  title
+                }
+              }
+        }`,
+        {id}
+    );
+
+    return result.data.likesEntries;
+}
+
 export async function createLike(jwt, shirtId, gebruiker, authorId) {
     const variables = {
         shirtId: shirtId,

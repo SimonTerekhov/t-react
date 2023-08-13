@@ -17,6 +17,21 @@ export async function getShirts(searchTerm) {
   return result.data.shirtsEntries;
 }
 
+export async function getAllShirts(){
+  const result = await graphQLRequest(
+    `query getAllShirts{
+      shirtsEntries {
+        ... on shirts_default_Entry {
+          id
+          title
+          description
+        }
+      }
+    }`
+  );
+  return result.data.shirtsEntries;
+}
+
 export async function getShirt(id) {
   const result = await graphQLRequest(
     `query getShirt($id: [QueryArgument]) {
