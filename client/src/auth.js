@@ -34,3 +34,16 @@ export async function register(email,password,username) {
     );
     return result.data.register;
 }
+
+export async function getUser(id){
+    const result = await graphQLRequest(
+        `query getuser{
+            user(id: ${id}) {
+                username
+              }
+        }`,
+        { id }
+    );
+
+    return result.data.user;
+}

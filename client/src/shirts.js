@@ -43,6 +43,7 @@ export async function getShirt(id) {
           title
           shirttext
           shirtcolor
+          authorId
         }
       }
     }

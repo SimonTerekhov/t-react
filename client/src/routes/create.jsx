@@ -35,7 +35,7 @@ export default function Create(){
       setShirtText(e.target.value)
     }
     return(
-        <>
+        <div className="create-flow">
         <div className="container__shirt">
             <img className="shirt" src="/shirt.png" alt="shirt" />
             <svg className="drawing__surface" width="150" height="150" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -65,6 +65,6 @@ export default function Create(){
                 </button>
             </div>
         </Form>
-        </>
+        </div>
     )
 }

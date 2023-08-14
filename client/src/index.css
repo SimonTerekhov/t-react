@@ -40,10 +40,22 @@ body{
 }
 
 main{
-  margin: 0 5rem;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  width: 134rem;
+}
+
+
+.create-flow, .shirt__details{
+  display: flex;
+  gap: 5rem;
+  justify-content: center;
+}
+
+Form input{
+  margin-bottom: 2rem;
 }
 
 a {
@@ -83,7 +95,6 @@ button:focus-visible {
 .container__shirts{
   display: flex;
   flex-wrap: wrap;
-  margin: 0 8rem;
   justify-content: space-between;
   gap: 5rem;
 }
@@ -99,7 +110,14 @@ button:focus-visible {
 #sidebar{
   display: flex;
   align-items: center;
-  gap: 5rem;
+  justify-content: space-between;
+}
+
+#q{
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid white;
+  font-size: 1.8rem;
 }
 
 .shirt{

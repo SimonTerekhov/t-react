@@ -38,7 +38,7 @@ export default function Index(){
                 id="q"
                 className={searching ? "loading" : ""}
                 aria-label="Search posts"
-                placeholder="Search"
+                placeholder="Search for shirts"
                 type="search"
                 name="q"
                 defaultValue={q}

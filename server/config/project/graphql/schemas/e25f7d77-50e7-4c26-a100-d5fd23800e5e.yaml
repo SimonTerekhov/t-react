@@ -6,6 +6,7 @@ scope:
   - 'entrytypes.6e711eb9-f248-42e2-8c37-a467c26a3e91:read' # Default
   - 'sections.5f67af7d-f291-4014-9fc3-354454c419b2:read' # Shirts
   - 'entrytypes.02b87d5e-eb2b-40d3-88ac-b28fe84bde20:read' # Default
+  - 'usergroups.everyone:read'
   - 'sections.f0bef74a-d0bf-428e-92d8-a1670e707ae3:edit' # Likes
   - 'entrytypes.6e711eb9-f248-42e2-8c37-a467c26a3e91:edit' # Default
   - 'entrytypes.6e711eb9-f248-42e2-8c37-a467c26a3e91:create' # Default
