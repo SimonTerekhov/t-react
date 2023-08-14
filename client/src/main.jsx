@@ -19,8 +19,6 @@ import {action as unlikeAction} from "./routes/unlike"
 //roots profile
 import Account from "./routes/account/account";
 import Likes, {loader as likesLoader} from "./routes/account/likes";
-import Creations from "./routes/account/creations";
-import Details from "./routes/account/details";
 
 const router = createBrowserRouter([
   {
@@ -70,14 +68,6 @@ const router = createBrowserRouter([
             element: <Likes />,
             loader: likesLoader,
           },
-          {
-            path: "creations",
-            element: <Creations />,
-          },
-          {
-            path: "details",
-            element: <Details />,
-          }
         ]
       },
       {

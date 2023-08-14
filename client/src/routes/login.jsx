@@ -1,4 +1,4 @@
-import {Form, useLoaderData, redirect, useNavigate, useOutletContext} from "react-router-dom";
+import {Form, useLoaderData, redirect, useNavigate, useOutletContext, NavLink} from "react-router-dom";
 import { useEffect } from "react";
 import {authenticate} from "../auth";
 
@@ -14,10 +14,14 @@ export async function action({request}) {
 export default function Login(){
     
     return(
-        <Form method="post" id="login__form">
-            <input type="text" defaultValue="admin" name="email" />
-            <input type="password" defaultValue="snakeoil" name="password" />
+        <Form style={{margin: "0 auto", display: "flex", flexDirection: "column"}} method="post" id="login__form">
+            <h1>Login</h1>
+            <p>Username or Email:</p>
+            <input type="text" required name="email" />
+            password:
+            <input type="password" required name="password" />
             <button type="submit">Login</button>
+            <NavLink to="/register">register</NavLink>
         </Form>
     )
 }

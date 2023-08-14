@@ -13,7 +13,6 @@ export default function Root() {
         </div>
         <div className="items__right">
           <NavLink to={loginState !== null ? `${loginState.username}/likes` : `/login`}>Likes</NavLink>
-          <NavLink to={loginState !== null ? `${loginState.username}/details` : `/login`}>Profile</NavLink>
         </div>
       </nav>
       <main>
