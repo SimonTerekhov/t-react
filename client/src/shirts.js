@@ -7,7 +7,8 @@ export async function getShirts(searchTerm) {
       ... on shirts_default_Entry {
         id
         title
-        description
+        shirttext
+        shirtcolor
       }
     }
   }`,
@@ -24,7 +25,8 @@ export async function getAllShirts(){
         ... on shirts_default_Entry {
           id
           title
-          description
+          shirttext
+          shirtcolor
         }
       }
     }`
@@ -39,7 +41,8 @@ export async function getShirt(id) {
         ... on shirts_default_Entry {
           id
           title
-          description
+          shirttext
+          shirtcolor
         }
       }
     }
@@ -56,11 +59,12 @@ export async function getShirt(id) {
 
 export async function createShirt(jwt,authorId, create) {
   const { data } = await graphQLRequest(
-    `mutation createShirt($title: String, $description: String) {
-      save_shirts_default_Entry(title: $title, description: $description, authorId: ${authorId}) {
+    `mutation createShirt($title: String, $shirttext: String, $shirtcolor: String) {
+      save_shirts_default_Entry(title: $title, shirttext: $shirttext, shirtcolor: $shirtcolor, authorId: ${authorId}) {
         id
         title
-        description
+        shirttext
+        shirtcolor
       }
     }`,
     {
@@ -73,11 +77,12 @@ export async function createShirt(jwt,authorId, create) {
 
 export async function editShirt(jwt, id, edits) {
   const { data } = await graphQLRequest(
-    `mutation editShirt($id: ID, $title: String, $description: String) {
-      save_shirts_default_Entry(id: $id, title: $title, description: $description) {
+    `mutation editShirt($id: ID, $title: String, $shirttext: String, $shirtcolor: String) {
+      save_shirts_default_Entry(id: $id, title: $title, shirttext: $shirttext, shirtcolor: $shirtcolor) {
         id
         title
-        description
+        shirttext
+        shirtcolor
       }
     }`,
     {

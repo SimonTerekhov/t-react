@@ -25,23 +25,34 @@ export async function action({request}) {
 
 export default function Create(){
     const navigate = useNavigate();
-    const [shirtColor, setShirtColor] = useState("blue");
+    const [shirtColor, setShirtColor] = useState("#6161ff");
+    const [shirtText, setShirtText] = useState("");
+
     const handleColorChange = (e) =>{
       setShirtColor(e.target.value)
-  }
+    }
+    const handleTextChange = (e) =>{
+      setShirtText(e.target.value)
+    }
     return(
         <>
         <div className="container__shirt">
-            <img className="shirt" style={{ filter: `opacity(.5) drop-shadow(0 0 0 ${shirtColor})` }} src="/shirt.png" alt="shirt" />
+            <img className="shirt" src="/shirt.png" alt="shirt" />
             <svg className="drawing__surface" width="150" height="150" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              
-              <circle cx="0" cy="0" r="15" stroke="black" fill="blue" stroke-width="3"/>
+              <circle cx="75" cy="75" r="70" stroke="black" fill={shirtColor} strokeWidth="5"/>
+              <circle cx="75" cy="75" r="15" stroke="black" fill="#E7E7F2" strokeWidth="3.5"/>
+              <circle cx="50" cy="50" r="8" stroke="black" fill="transparent" strokeWidth="3.5"/>
+              <circle cx="100" cy="50" r="8" stroke="black" fill="transparent" strokeWidth="3.5"/>
             </svg>
+            <p className="shirt__text">{shirtText}</p>
         </div>
         <Form method="post" id="create__form">
+            <p>Title:</p>
             <input type="text" name="title" />
-            <input type="text" name="description" />
-            <input type="color" onChange={handleColorChange}/>
+            <p>Shirt text:</p>
+            <input type="text" name="shirttext" onChange={handleTextChange}/>
+            <p>Color:</p>
+            <input type="color" name="shirtcolor" value={shirtColor} onChange={handleColorChange}/>
             <div className="create__buttons">
                 <button type="submit" id="submitter">Create</button>
                   <button

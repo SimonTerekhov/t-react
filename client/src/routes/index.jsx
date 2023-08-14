@@ -12,6 +12,7 @@ export async function loader({ request }) {
 
 export default function Index(){
     const { shirts, q } = useLoaderData();
+    console.log(shirts)
     const navigation = useNavigation();
     useEffect(() => {
         document.getElementById("q").value = q;
@@ -31,7 +32,7 @@ export default function Index(){
     return (
     <>
       <div id="sidebar">
-          <h1>Shirts</h1>
+        <h1>Goofy shirts</h1>
           <Form id="search-form" role="search">
               <input
                 id="q"
@@ -58,17 +59,26 @@ export default function Index(){
                 aria-live="polite"
               ></div>
           </Form>
-          <NavLink to="/create"><button>Create</button></NavLink>
+          <NavLink to="/create"><button>Create your own shirt</button></NavLink>
       </div>
       <div className="container__shirts">
           {shirts.length ? (
-              <div>
+              <>
                   {shirts.map((shirt) => (
-                      <NavLink to={`/${shirt.id}`} key={shirt.id}>
-                          <h2>{shirt.title}</h2>
+                      <NavLink className="single__shirt"  to={`/${shirt.id}`} key={shirt.id}>
+                          <div className="container__shirt">
+                            <img className="shirt" src="/shirt.png" alt="shirt" />
+                            <svg className="drawing__surface" width="150" height="150" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                              <circle cx="75" cy="75" r="70" stroke="black" fill={shirt.shirtcolor} strokeWidth="5"/>
+                              <circle cx="75" cy="75" r="15" stroke="black" fill="#E7E7F2" strokeWidth="3.5"/>
+                              <circle cx="50" cy="50" r="8" stroke="black" fill="transparent" strokeWidth="3.5"/>
+                              <circle cx="100" cy="50" r="8" stroke="black" fill="transparent" strokeWidth="3.5"/>
+                            </svg>
+                            <p className="shirt__text">{shirt.shirttext}</p>
+                          </div>
                       </NavLink>
                   ))}
-              </div>
+              </>
           ) : (
               <p>No shirts found</p>
           )}

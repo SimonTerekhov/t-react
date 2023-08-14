@@ -1,9 +1,9 @@
-columnSuffix: wlcvzddh
+columnSuffix: hxqpicst
 contentColumnType: text
 fieldGroup: c5fbbd8d-e6a5-485f-b279-015d8309feff # Common
-handle: description
+handle: shirttext
 instructions: null
-name: description
+name: shirtText
 searchable: false
 settings:
   byteLimit: null

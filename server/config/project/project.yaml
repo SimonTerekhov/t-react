@@ -1,4 +1,4 @@
-dateModified: 1691870730
+dateModified: 1691967404
 email:
   fromEmail: simon.terekhov@gmail.com
   fromName: t-react
@@ -21,10 +21,11 @@ meta:
     6e711eb9-f248-42e2-8c37-a467c26a3e91: Default # Default
     9cc51403-25f8-4780-a4f6-e972a87bc435: 'Front-end users' # Front-end users
     33bc150d-31e9-47c3-b25d-a813087f91f8: t-react # t-react
+    b9df300e-07f5-410b-9cdf-22c709c67be2: shirtColor # shirtColor
     c5fbbd8d-e6a5-485f-b279-015d8309feff: Common # Common
+    e040fbcc-fea0-4a64-97fa-63ca171d46d3: shirtText # shirtText
     e4cb0ec6-4050-4ba5-9ee8-0c906e00b90d: 'Public Schema' # Public Schema
     e25f7d77-50e7-4c26-a100-d5fd23800e5e: 'Private Schema' # Private Schema
-    ea515821-b8cf-40b4-8de9-d08e73d13ad4: description # description
     f0bef74a-d0bf-428e-92d8-a1670e707ae3: Likes # Likes
 plugins:
   graphql-authentication:

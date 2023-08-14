@@ -42,6 +42,8 @@ body{
 main{
   margin: 0 5rem;
   display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 a {
@@ -56,6 +58,7 @@ a:hover {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  text-transform: uppercase;
 }
 
 button {
@@ -77,10 +80,26 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.container__shirts{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 8rem;
+  justify-content: space-between;
+  gap: 5rem;
+}
 
+.container__shirts > * {
+  flex-basis: 1 1 33.33%;
+}
 .container__shirt{
   position: relative;
   width: 35rem;
+}
+
+#sidebar{
+  display: flex;
+  align-items: center;
+  gap: 5rem;
 }
 
 .shirt{
@@ -94,7 +113,24 @@ button:focus-visible {
   top: 10rem;
 }
 
+.shirt__text{
+  text-transform: uppercase;
+  font-weight: bolder;
+  color: black;
+  position: absolute;
+  bottom: 7.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+}
 
+
+.single__shirt{
+  transition: transform 0.2s;
+}
+.single__shirt:hover{
+  transform: scale(1.05);
+}
 
 
 

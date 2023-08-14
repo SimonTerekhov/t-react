@@ -32,13 +32,25 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: ea515821-b8cf-40b4-8de9-d08e73d13ad4 # description
+            fieldUid: b9df300e-07f5-410b-9cdf-22c709c67be2 # shirtColor
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 77fa03b4-75c5-4ae3-a4fe-70b78f35080c
+            uid: 41509ef7-f0f4-4786-8605-af6951e3e8a2
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: e040fbcc-fea0-4a64-97fa-63ca171d46d3 # shirtText
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: db62c82d-168d-4d62-a40a-c69e44a6e9ff
             userCondition: null
             warning: null
             width: 100
