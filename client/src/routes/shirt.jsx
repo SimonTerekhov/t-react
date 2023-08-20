@@ -1,10 +1,12 @@
-import { useLoaderData, Form } from "react-router-dom";
+import { useLoaderData, Form, NavLink } from "react-router-dom";
 import {getShirt} from "../shirts";
 import {getLike} from "../likes";
 import {getUser} from "../auth";
 
 export async function loader({ params }) {
   const user = JSON.parse(localStorage.getItem("user"));
+  let like = false;
+  console.log(user);
   const shirt = await getShirt(params.shirtId);
   if (!shirt) {
     throw new Response("", {
@@ -12,17 +14,16 @@ export async function loader({ params }) {
       statusText: "Not Found",
     });
   }
+  if(user){
+    like = await getLike(params.shirtId, user.id);
+  }
   const username = await getUser(shirt.authorId);
-  console.log(username);
-
-  const like = await getLike(params.shirtId, user.id);
   return { shirt, like, username };
 }
 
 export default function Shirt(){
     const { shirt, like,username } = useLoaderData();
     const user = JSON.parse(localStorage.getItem("user"));
-    console.log(shirt);
     return (
         <div className="shirt__details">
         <div className="container__shirt">
@@ -60,10 +61,9 @@ export default function Shirt(){
           <Form method="post" action="unlike">
             <button type="submit">💜</button>
           </Form>
-          : 
-          <Form method="post" action="like">
-            <button id="shirt__like" type="submit">♡</button>
-          </Form>}
+          : (user !== null ? <Form method="post" action="like">
+          <button id="shirt__like" type="submit">♡</button>
+        </Form> : <NavLink to="/login"><button id="shirt__like" type="button">♡</button></NavLink>)}
         </div>
         </div>
     )
