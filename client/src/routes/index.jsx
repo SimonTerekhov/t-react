@@ -12,7 +12,6 @@ export async function loader({ request }) {
 
 export default function Index(){
     const { shirts, q } = useLoaderData();
-    console.log(shirts);
     const navigation = useNavigation();
     useEffect(() => {
         document.getElementById("q").value = q;

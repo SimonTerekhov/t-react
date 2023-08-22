@@ -48,9 +48,9 @@ export default function Create(){
         </div>
         <Form method="post" id="create__form">
             <p>Title:</p>
-            <input type="text" name="title" />
+            <input type="text" required name="title" />
             <p>Shirt text:</p>
-            <input type="text" name="shirttext" onChange={handleTextChange}/>
+            <input type="text" required name="shirttext" onChange={handleTextChange}/>
             <p>Color:</p>
             <input type="color" name="shirtcolor" value={shirtColor} onChange={handleColorChange}/>
             <div className="create__buttons">

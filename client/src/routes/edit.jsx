@@ -14,7 +14,7 @@ export async function action({ request, params }) {
 export default function Edit(){
     const { shirt } = useLoaderData();
     const navigate = useNavigate();
-    const [shirtDetails, setShirtDetails] = useState({color: "#6161ff", shirttext: `${shirt.shirttext}`});
+    const [shirtDetails, setShirtDetails] = useState({color: `${shirt.shirtcolor}`, shirttext: `${shirt.shirttext}`});
 
     const handleColorChange = (e) =>{
       setShirtDetails({

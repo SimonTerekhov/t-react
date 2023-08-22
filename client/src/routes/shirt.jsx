@@ -2,11 +2,12 @@ import { useLoaderData, Form, NavLink } from "react-router-dom";
 import {getShirt} from "../shirts";
 import {getLike} from "../likes";
 import {getUser} from "../auth";
+import { CartContext } from "./root";
+import {useContext} from "react"
 
 export async function loader({ params }) {
   const user = JSON.parse(localStorage.getItem("user"));
   let like = false;
-  console.log(user);
   const shirt = await getShirt(params.shirtId);
   if (!shirt) {
     throw new Response("", {
@@ -24,6 +25,12 @@ export async function loader({ params }) {
 export default function Shirt(){
     const { shirt, like,username } = useLoaderData();
     const user = JSON.parse(localStorage.getItem("user"));
+    
+    const [cartDetailsState, setCartDetailsState] = useContext(CartContext);
+
+    const handleCart = (cartDetails) =>{
+      setCartDetailsState([...cartDetailsState, cartDetails]);
+    }
     return (
         <div className="shirt__details">
         <div className="container__shirt">
@@ -64,6 +71,7 @@ export default function Shirt(){
           : (user !== null ? <Form method="post" action="like">
           <button id="shirt__like" type="submit">♡</button>
         </Form> : <NavLink to="/login"><button id="shirt__like" type="button">♡</button></NavLink>)}
+        <button onClick={() => handleCart({ id: shirt.id, name: shirt.title, price: 10 })}>Add to cart</button>
         </div>
         </div>
     )
