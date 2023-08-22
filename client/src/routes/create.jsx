@@ -9,7 +9,6 @@ export async function action({request}) {
 
     const formData = await request.formData();
     const create = Object.fromEntries(formData);
-    console.log(create);
     const result = await createShirt(jwt, user.id, create);
     if (!jwt || !user || !user.id) {
         return redirect("/login");
