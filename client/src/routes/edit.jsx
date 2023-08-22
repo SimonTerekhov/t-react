@@ -4,9 +4,15 @@ import { useState } from "react";
 import jwtDecode from "jwt-decode";
 
 export async function action({ request, params }) {
+  
     const formData = await request.formData();
     const edits = Object.fromEntries(formData);
     const jwt = localStorage.getItem("jwt");
+    const decodedToken = jwtDecode(jwt);
+    const currentTime = Date.now() / 1000;
+    if (decodedToken.exp < currentTime) {
+      return redirect("/login");
+    }
     await editShirt(jwt, params.shirtId, edits);
     return redirect(`/${params.shirtId}`);   
 }
@@ -47,7 +53,7 @@ export default function Edit(){
             <p>Color:</p>
             <input type="color" name="shirtcolor" value={shirtDetails.color} onChange={handleColorChange}/>
             <div className="create__buttons">
-                <button type="submit" id="submitter">Create</button>
+                <button type="submit" id="submitter">Edit</button>
                   <button
                     type="button"
                     onClick={() => {
